@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ PAGE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+        * {
+            font-family: Lato, sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #3b4c7090;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 50px 0;
+        }
+
+        .wrapper {
+            width: 60%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background-color: white;
+            color: black;
+            border-radius: 20px;
+            box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.25);
+            margin: 20px 0;
+        }
+
+        .question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 20px 80px 20px 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .question::after {
+            content: "\002B";
+            font-size: 2.2rem;
+            position: absolute;
+            right: 20px;
+            transition: 0.2s;
+        }
+
+        .question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .answercont {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .answer {
+            padding: 0 20px 20px;
+            line-height: 1.5rem;
+        }
+
+        .question.active+.answercont {}
+
+        @media screen and (max-width: 790px) {
+            html {
+                font-size: 14px;
+            }
+
+            .wrapper {
+                width: 80%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>FAQs</h1>
+
+    <div class="wrapper">
+
+        <div class="container">
+            <div class="question">
+                How do I create a profile on the job search portal?
+            </div>
+            <div class="answercont">
+                <div class="answer">
+                    To create a profile on the job search portal, you'll typically need to provide basic information such as your name, email address, and a password. You may also be asked to upload a resume or 
+                    fill out a profile with additional information such as your work experience, education, and skills.
+                    <br><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="question">
+                How do I search for jobs on the job search portal?
+            </div>
+            <div class="answercont">
+                <div class="answer">
+                    To search for jobs on the job search portal, you can typically use the search bar to enter keywords related to the type of job you're looking for. 
+                    <br><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="question">
+                How do I apply for jobs on the job search portal?
+            </div>
+            <div class="answercont">
+                <div class="answer">
+                    To apply for jobs on the job search portal, you'll typically need to create a profile and generate a resume. Once the jobs have been recommended, you can usually apply directly through the job search portal by filling out an online application
+                     and submitting your resume and other required documents.<br><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="question">
+                Are there any fees associated with using the job search portal?
+            </div>
+            <div class="answercont">
+                <div class="answer">
+                    In most cases, using a job search portal is free for job seekers. However, some portals may offer premium services or additional features for a fee. It's important to read the job search portal's terms
+                    and conditions to understand any fees or charges that may apply.
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="question">
+                How often are job postings updated on the job search portal?
+            </div>
+            <div class="answercont">
+                <div class="answer">
+                    The frequency of job posting updates on a job search portal can vary depending on the portal and the type of job. Our portal will update their job listings in real-time,
+                    while others may update their listings at certain time intervals.<br><br>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
+    <script>
+
+        let question = document.querySelectorAll(".question");
+
+        question.forEach(question => {
+            question.addEventListener("click", event => {
+                const active = document.querySelector(".question.active");
+                if (active && active !== question) {
+                    active.classList.toggle("active");
+                    active.nextElementSibling.style.maxHeight = 0;
+                }
+                question.classList.toggle("active");
+                const answer = question.nextElementSibling;
+                if (question.classList.contains("active")) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = 0;
+                }
+            })
+        })
+    </script>
+
+</body>
+
+
+</html>

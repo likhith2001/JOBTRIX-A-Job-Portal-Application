@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Jobtrix</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://kit.fontawesome.com/8fe36a7cfd.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.js"
+    integrity="sha512-o4gKX6jcK0rdciOZ9X8COYkV9gviTJAbYEVW8aC3OgIRuaKDmcT9/OFXBVzHSSOxiTjsTktqrUvCUrHkQHSn9Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="{{url_for('static', filename='css/index.css')}}" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/he/1.2.0/he.js"
+    integrity="sha512-o4gKX6jcK0rdciOZ9X8COYkV9gviTJAbYEVW8aC3OgIRuaKDmcT9/OFXBVzHSSOxiTjsTktqrUvCUrHkQHSn9Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0
+    }
+
+    .mySlides {
+      display: none
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+      background-size: 100% 100vh;
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+
+      .prev,
+      .next,
+      .text {
+        font-size: 11px
+      }
+    }
+
+    #form1,
+    #form2,
+    #form3,
+    #form4,
+    #form5 {
+      z-index: index 1;
+      display: none;
+      background-color: rgb(54, 85, 185);
+      width: 100%;
+      padding: 0 50px;
+      text-align: left !important;
+    }
+
+    #form1 {
+      font-family: "ubuntu"sans-serif;
+      background-color: transparent !important;
+      padding: 50px;
+    }
+
+    #form1 input[type=text] {
+      align-self: center;
+      width: 75%;
+      height: 50px;
+      border: 1px solid black !important;
+      background-color: transparent;
+      color: black;
+      border-radius: 5px;
+    }
+
+    #form1 h1 {
+      color: black;
+      font-size: 50px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    #form1 input[type=text]::placeholder {
+      color: rgba(13, 52, 57, 0.21);
+      font-size: 15px;
+    }
+
+    #form1 input[type=submit] {
+      border-radius: 45px;
+      font-family: "ubuntu"sans-serif;
+      font-size: 15px;
+      font-style: bold;
+      width: 20%;
+      height: 50px;
+      border: 1px solid black;
+      background-color: #273342;
+      color: white;
+    }
+
+    #form1 input[type=submit]:hover {
+      background-color: rgba(64, 101, 101, 0.26);
+      color: black;
+    }
+
+    p {
+      color: black !important;
+
+    }
+
+    #form1.active,
+    #form2.active,
+    #form3.active,
+    #form4.active,
+    #form5.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<nav class="navbar navbar-inverse" style="margin: 0;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!-- <a class="navbar-brand" ><img src="{{url_for('static', filename='img.jpg')}}" width="40px"></a> -->
+      <a class="navbar-brand">Jobtrix</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a data-value="#form1" onclick="toggleform(event)">Home</a></li>
+        <li><a href="{{url_for('about')}}">About</a></li>
+        <li><a data-value="#form2" onclick="toggleform(event)">User</a></li>
+        <li><a data-value="#form4" onclick="toggleform(event)">Admin</a></li>
+        <li><a href="{{url_for('support')}}" target="_blank">Support</a></li>
+        <li><a href="{{url_for('contact')}}" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+  {% block content %}
+  {% if msg %}
+  <div class="alert alert-danger alert-dismissible fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{msg}}</strong>
+  </div>
+  {% endif %}
+  {% endblock content %}
+</div>
+<!-- <section>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators 
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol> -->
+
+<!-- Wrapper for slides
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="https://images.unsplash.com/photo-1585695968280-f2d03c1cafb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"  alt="Image1" style="width:1600px;height:500px;">
+    </div>
+
+    <div class="item">
+      <img src="https://images.unsplash.com/photo-1675664532493-ab9f3e5ed1ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=901&q=80" alt="Image2" style="width:1600px;height:500px;">
+    </div>
+
+    <div class="item">
+      <img src="https://cdn.searchenginejournal.com/wp-content/uploads/2019/03/13-Professional-Networking-Alternatives-to-LinkedIn.png" alt="Image3" style="width:1600px;height:500px;">
+    </div>
+
+    <div class="item">
+      <div class="item">
+        <img src="https://imageio.forbes.com/specials-images/imageserve/63fcf5557976c6067517789d/There-are-ways-to-conduct-layoffs-with-empathy-/960x0.jpg?format=jpg&width=960" alt="Image4" style="width:1300px;height:500px;">
+      </div> 
+    </div>
+  </div>
+
+   
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</section> -->
+
+<body>
+  <div class="row">
+    <div class="left-column">
+      <h2 class="left-heading">"Jobtrix - Unravel YOUR job "</h2>
+      <p class="left-paragraph">With the ongoing recession, we aim at providing users like you with job oppurtunities
+        that are tailored just for you.
+        With multiple resources and resume generating feature, we ensure that the right job would find you.
+      </p>
+      <button class="btn success" data-value="#form2" onclick="toggleform(event)"
+        style="border-radius: 45px !important;">Get Started</button>
+      <button class="btn info" data-value="#form1" onclick="toggleform(event)"
+        style="border-radius: 45px !important;">Search jobs</button>
+    </div>
+    <div class="right-column">
+
+    </div>
+  </div>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;600;700&display=swap');
+
+    body {
+      height: 100vh;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .row {
+      height: 100%;
+      margin: auto;
+    }
+
+    .left-heading {
+      font-weight: 700;
+      color: #273342;
+      font-size: 3.75rem;
+      line-height: 1;
+    }
+
+    .left-paragraph {
+      color: gray;
+      padding-left: 10px;
+      margin-top: 20px;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+
+    .left-column {
+      background-color: #fff;
+      float: left;
+      width: 50%;
+      padding: 25px;
+      align-items: center;
+      vertical-align: center;
+      height: 100%;
+      /* Should be removed. Only for demonstration */
+      padding-top: 15%;
+    }
+
+    /* Create two equal columns that floats next to each other */
+    .right-column {
+      background-image: url('https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80');
+      object-fit: cover;
+      background-position: 50% 50%;
+      float: left;
+      width: 50%;
+      padding: 10px;
+      align-items: center;
+      vertical-align: center;
+      height: 100%;
+      /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .btn {
+      width: 200px;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      font-size: 19px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 20px;
+      margin-left: 10px;
+      border-radius: 0.375rem;
+      border: none;
+    }
+
+    .success {
+      /* background-color: rgb(79 70 229); */
+      background-color: rgba(7, 37, 134, 0.758);
+      color: white;
+      box-shadow: 2px 4px 6px 8px rgb(79 70 229/0.10);
+      margin-right: 20px;
+    }
+
+    .info {
+      background-color: #fff;
+      background-color: rgba(7, 37, 134, 0.758);
+      /* color: rgb(79 70 229); */
+      box-shadow: 2px 4px 6px 8px #dddddd40;
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .left-column {
+        width: 100%;
+        height: auto;
+      }
+
+      .right-column {
+        width: 97%;
+        margin: 0 20px 0 10px;
+        border-radius: 20px;
+      }
+
+      .success {
+        /* background-color: rgb(79 70 229); */
+        background-color: rgba(7, 37, 134, 0.758);
+        color: white;
+        box-shadow: 2px 4px 6px 8px rgb(79 70 229/0.10);
+        margin-right: 2px;
+      }
+
+      .btn {
+        width: 150px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+    }
+  </style>
+  <form method="post" action="/jobsearch" id="form1" class="active">
+    <h1 style="color: #273342; font-family: 'Roboto', sans-serif; text-align: center; font-weight: 700;font-size: 3.75rem;
+    line-height: 1;">EXPLORE JOBS
+    </h1>
+    <input type="text" id="job" placeholder="Enter company name/position" name="job"
+      style="border: #717171; border-width: 1.5px !important;">
+    <input type="submit" value="SEARCH" style="border: #717171; border-color: black; font-family: 'Roboto', serif;">
+  </form>
+  <!--user log, /userlog a fn in py file-->
+  <!--get method display in the form of url, post method data hiding-->
+  <form method="post" action="/userlog" id="form2">
+    <h3>Login</h3>
+    <hr>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" placeholder="Enter username" name="name">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button></br></br>
+    Click here to <a data-value="#form3" onclick="toggleform(event)">Sign up</a>
+    <br>
+             <a data-value="#form5" onclick="toggleform(event)">Forgot password ?</a>
+            <br>
+            <br>
+  </form>
+
+  <form  method="post" action="/update_pass" id="form5">
+    <h3>Login</h3>
+    <hr>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="username" placeholder="Enter username" name="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+    </div>
+    <div class="form-group">
+      <label for="otp">Otp:</label>
+      <input type="number" class="form-control" id="otp" name="otp" placeholder="enter otp" required>
+      <input type="button" class="btn btn-success" id="getotp" value="get otp">
+  </div>
+    <button type="submit" class="btn btn-success">Submit</button></br></br>
+    Click here to <a data-value="#form2" onclick="toggleform(event)">Sign in</a>
+    <br>
+    <br>
+  </form>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+  <div class="wrapper">
+    <div class="letters"><span class="letter">1</span><span class="letter">0</span><span class="letter">5</span><span
+        class="letter">3</span><span class="letter">7</span><span class="letter">7</span><span
+        class="letter">4</span><span class="letter">0</span><span class="letter">9</span><span
+        class="letter">1</span><span class="letter">6</span><span class="letter">0</span><span
+        class="letter">8</span><span class="letter">5</span><span class="letter">2</span><span class="letter">0</span>
+    </div>
+    <p id="tt">Millions have found their "DREAM" job</p>
+  </div>
+  <!-- <section class="img-section"><img src="about-03.jpg" alt=""></section>
+        <div class="bg-images-4">
+          <div class="shell">
+            <div class="range">
+              <div class="cell-md-7 cell-lg-6 bg-brand-secondary section-80 section-sm-top-123 section-sm-bottom-105 text-left">
+                <h2> Day to day service</h2>
+                <p class="text-bold offset-top-51">Phone calls</p>
+                <p class="offset-top-14">We realise how frustrating platform-based call centres are so a 'real' person always answers the phone within 4 rings.</p>
+                <p class="text-bold offset-top-34">Invoices sent same day</p>
+                <p class="offset-top-14">Invoices will be sent to the agency (or end client) the same day if your online timesheet is submitted to us before 16.30, Monday to Friday.</p>
+                <p class="text-bold offset-top-34">Expense checking</p>
+                <p class="offset-top-14">We will monitor your expense claims and provide advice where required.</p>
+                <p class="text-bold offset-top-34">Secure Employee area</p>
+                <p class="offset-top-14">The employee's area is secured sockets layer so your privacy is guaranteed.</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+  <!-- <section>
+          <div>hello there</div>
+        </section> -->
+  <!-- <div>hello trial</div> -->
+  <!--trial-->
+  <div class="row">
+    <div class="left-column1">
+      <h2 class="left-heading">"Jobtrix - Unravel YOUR job "</h2>
+      <p class="left-paragraph">Welcome to Jobtrix, your ultimate destination for finding and securing your dream job. Our innovative job portal application connects talented job seekers with top-notch employers, simplifying the hiring process and ensuring the perfect match. Explore our extensive database of job listings, create a compelling profile, and apply for exciting opportunities with just a few clicks. 
+        Join Jobtrix today and let us pave the way to your professional success.
+      </p><a href="{{url_for('about')}}">
+        <button class="btn success" data-value="about" onclick="toggleform(event)">Know more</button>
+      </a>
+    </div>
+    <div class="right-column1">
+
+      <div class="video-button1" data-aperture="closed">
+        <div class="video-container1">
+          <video class="actual-video1" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/502545/Oculus.mp4"
+            poster="https://assets.codepen.io/502545/2021-02-08_20-46-41.jpg">
+          </video>
+          <div class="play-button__aperture--left"></div>
+          <div class="play-button__aperture--top-right"></div>
+          <div class="play-button__aperture--bottom-right"></div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <script>
+    console.clear();
+    var videoEl = document.querySelector('video');
+    document.querySelector('.video-button1').addEventListener('click',
+      function () {
+        if (this.dataset.aperture === 'open') {
+          this.dataset.aperture = 'closed';
+          videoEl.pause();
+          videoEl.progress = 0;
+        } else {
+          this.dataset.aperture = 'open';
+          videoEl.play();
+        }
+      });
+  </script>
+  <style>
+    .video-button1,
+    .video-container1 {
+      padding: 0;
+      position: relative;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      --video-width: 50vw;
+      width: var(--video-width);
+      height: calc(var(--video-width) / 1.77);
+    }
+
+    .video-button1 {
+      cursor: pointer;
+      clip-path: polygon(30% 20%, 70% 20%, 70% 80%, 30% 80%);
+      transition: 0.6s cubic-bezier(0.6, 0, 0.4, 1);
+    }
+
+    .video-button1[data-aperture="open"] {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    .video-container1 {
+      overflow: hidden;
+    }
+
+    .actual-video1 {
+      position: relative;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      transition: 0.6s linear;
+      transform: scale(1);
+    }
+
+    [data-aperture="open"] .actual-video1 {
+      transform: scale(1);
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;600;700&display=swap');
+
+    body {
+      height: 100vh;
+      font-family: 'Ubuntu', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .row {
+      height: 100%;
+      margin: auto;
+    }
+
+    .left-heading {
+      font-weight: 700;
+      color: #273342;
+      font-size: 3.75rem;
+      line-height: 1;
+    }
+
+    .left-paragraph {
+      color: gray;
+      padding-left: 10px;
+      margin-top: 20px;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+
+    .left-column1 {
+      background-color: #fff;
+      float: left;
+      width: 40%;
+      padding: 25px;
+      align-items: center;
+      vertical-align: center;
+      height: 100%;
+      /* Should be removed. Only for demonstration */
+      padding-top: 15%;
+    }
+
+    /* Create two equal columns that floats next to each other */
+    .right-column1 {
+      background-color: rgba(7, 37, 134, 0.758);;
+      padding-top: 130px;
+      padding-left: 10px;
+      /*background-clip:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/502545/Oculus.mp4');*/
+      float: left;
+      width: 60%;
+      align-items: center;
+      vertical-align: center;
+      height: 100%;
+      /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .btn {
+      width: 200px;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      font-size: 19px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 20px;
+      margin-left: 10px;
+      border-radius: 0.375rem;
+      border: none;
+    }
+
+    .success {
+      /* background-color: rgb(79 70 229); */
+      background-color: rgba(7, 37, 134, 0.758);
+      color: white;
+      box-shadow: 2px 4px 6px 8px rgb(79 70 229/0.10);
+      margin-right: 20px;
+    }
+
+    .info {
+      background-color: #fff;
+      /* color: rgb(79 70 229); */
+      color: rgba(7, 37, 134, 0.758);
+      box-shadow: 2px 4px 6px 8px #dddddd40;
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .left-column {
+        width: 100%;
+        height: auto;
+      }
+
+      .right-column {
+        width: 97%;
+        margin: 0 20px 0 10px;
+        border-radius: 20px;
+      }
+
+      .success {
+        /* background-color: rgb(79 70 229); */
+        background-color: rgba(7, 37, 134, 0.758);
+        color: white;
+        box-shadow: 2px 4px 6px 8px rgb(79 70 229/0.10);
+        margin-right: 2px;
+      }
+
+      .btn {
+        width: 150px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+    }
+
+    .text-tarawera {
+      color: #001F61;
+      align-items: center;
+      margin-left: 300px;
+      padding-left: 180px;
+      padding-top:70px;
+      font-weight: bold;
+    }
+
+    h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+    
+  </style>
+
+  <!--trial ends-->
+
+  <!-- <div>
+        <div class="video-button" data-aperture="closed">
+          <div class="video-container" >
+            <video class="actual-video" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/502545/Oculus.mp4" poster="https://assets.codepen.io/502545/2021-02-08_20-46-41.jpg">
+            </video>
+            <div class="play-button__aperture--left"></div>
+            <div class="play-button__aperture--top-right"></div>
+            <div class="play-button__aperture--bottom-right"></div>
+          </div>
+          </div>
+        </div> 
+           <script>
+            console.clear();
+var videoEl = document.querySelector('video');
+document.querySelector('.video-button').addEventListener('click', 
+                                                            function(){
+  if(this.dataset.aperture === 'open') {
+    this.dataset.aperture = 'closed';
+    videoEl.pause();
+    videoEl.progress = 0;
+  } else {
+    this.dataset.aperture = 'open';
+    videoEl.play();
+  }
+});
+   </script> -->
+
+<!-- ---------------------TESTIMONIALS START ----------------------------------------- -->
+<h2 class="text-tarawera">TESTIMONIALS</h2>
+<div class="testimonials-container">
+	<i class="fas fa-quote-left"></i>
+	<p class="text"></p>
+	<strong class="name"></strong>
+	<div class="authors-container">
+		<div class="author selected"><img src="https://randomuser.me/api/portraits/men/41.jpg" alt=""></div>
+		<div class="author"><img src="https://randomuser.me/api/portraits/women/50.jpg" alt=""></div>
+		<div class="author"><img src="https://randomuser.me/api/portraits/women/22.jpg" alt=""></div>
+		<div class="author"><img src="https://randomuser.me/api/portraits/women/76.jpg" alt=""></div>
+		<div class="author"><img src="https://randomuser.me/api/portraits/men/17.jpg" alt=""></div>
+	</div>
+</div>
+
+<!-- SOCIAL PANEL HTML -->
+<div class="social-panel-container">
+	<div class="social-panel">
+		<p>Created with <i class="fa fa-heart"></i> by
+			<a target="_blank" href="https://florin-pop.com">Florin Pop</a></p>
+		<button class="close-btn"><i class="fas fa-times"></i></button>
+		<h4>Get in touch on</h4>
+		<ul>
+			<li>
+				<a href="https://www.patreon.com/florinpop17" target="_blank">
+					<i class="fab fa-discord"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/florinpop1705" target="_blank">
+					<i class="fab fa-twitter"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://linkedin.com/in/florinpop17" target="_blank">
+					<i class="fab fa-linkedin"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://facebook.com/florinpop17" target="_blank">
+					<i class="fab fa-facebook"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://instagram.com/florinpop17" target="_blank">
+					<i class="fab fa-instagram"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #D3CCE3;
+	background: -webkit-linear-gradient(to bottom, #E9E4F0, #D3CCE3);
+	background: linear-gradient(to bottom, #E9E4F0, #D3CCE3);
+	font-family: 'Roboto', sans-serif;
+	display:block;
+	align-items:end;
+	justify-content: center;
+	min-height: 100vh;
+	margin: 0;
+}
+
+.testimonials-container {
+	color: rgba(255, 255, 255, 0.8);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 70px 50px 50px;
+	transition: all 0.3s ease-in;
+	margin-left: 200px;
+  margin-top: 20px;
+	max-width: 70%;
+}
+
+.fa-quote-left {
+	color: rgba(0, 0, 0, 0.15);
+	font-size: 50px;
+}
+
+.text {
+	line-height: 30px;
+	margin: 40px 0 20px;
+	min-height: 150px;
+	max-width: 600px;
+	text-align: justify;
+	word-spacing: 5px;
+  position: relative;
+}
+
+.name {
+	align-self: flex-end;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.authors-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.author {
+	margin: 30px 30px 0;
+	cursor: pointer;
+}
+
+.author.selected img {
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+	transform: scale(1.2);
+}
+
+.author img {
+	transition: all 0.3s ease-in;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+}
+
+
+
+/* SOCIAL PANEL CSS */
+.social-panel-container {
+	position: fixed;
+	right: 0;
+	bottom: 80px;
+	transform: translateX(100%);
+	transition: transform 0.4s ease-in-out;
+}
+
+.social-panel-container.visible {
+	transform: translateX(-10px);
+}
+
+.social-panel {	
+	background-color: #fff;
+	border-radius: 16px;
+	box-shadow: 0 16px 31px -17px rgba(0,31,97,0.6);
+	border: 5px solid #001F61;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Muli';
+	position: relative;
+	height: 169px;	
+	width: 370px;
+	max-width: calc(100% - 10px);
+}
+
+.social-panel button.close-btn {
+	border: 0;
+	color: #97A5CE;
+	cursor: pointer;
+	font-size: 20px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.social-panel button.close-btn:focus {
+	outline: none;
+}
+
+.social-panel p {
+	background-color: #001F61;
+	border-radius: 0 0 10px 10px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 18px;
+	padding: 2px 17px 6px;
+	position:relative;
+	top: 0;
+	left: 50%;
+	margin: 0;
+	transform: translateX(-50%);
+	text-align: center;
+	width: 235px;
+}
+
+.social-panel p i {
+	margin: 0 5px;
+}
+
+.social-panel p a {
+	color: #FF7500;
+	text-decoration: none;
+}
+
+.social-panel h4 {
+	margin: 20px 0;
+	color: #97A5CE;	
+	font-family: 'Muli';	
+	font-size: 14px;	
+	line-height: 18px;
+	text-transform: uppercase;
+}
+
+.social-panel ul {
+	display: flex;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.social-panel ul li {
+	margin: 0 10px;
+}
+
+.social-panel ul li a {
+	border: 1px solid #DCE1F2;
+	border-radius: 50%;
+	color: #001F61;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	width: 50px;
+	text-decoration: none;
+}
+
+.social-panel ul li a:hover {
+	border-color: #FF6A00;
+	box-shadow: 0 9px 12px -9px #FF6A00;
+}
+
+.floating-btn {
+	border-radius: 26.5px;
+	background-color: #001F61;
+	border: 1px solid #001F61;
+	box-shadow: 0 16px 22px -17px #03153B;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 20px;
+	padding: 12px 20px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 999;
+}
+
+.floating-btn:hover {
+	background-color: #ffffff;
+	color: #001F61;
+}
+
+.floating-btn:focus {
+	outline: none;
+}
+
+.floating-text {
+	background-color: #001F61;
+	border-radius: 10px 10px 0 0;
+	color: #fff;
+	font-family: 'Muli';
+	padding: 7px 15px;
+	position: relative;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	z-index: 998;
+}
+
+.floating-text a {
+	color: #FF7500;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 480px) {
+
+	.social-panel-container.visible {
+		transform: translateX(0px);
+	}
+	
+	.floating-btn {
+		right: 10px;
+	}
+}
+</style>
+
+<script>
+  const authorsEl = document.querySelectorAll('.author');
+const container = document.querySelector('.testimonials-container');
+const nameEl = document.querySelector('.name');
+const textEl = document.querySelector('.text');
+
+const testimonials = [{
+	text: 'I was struggling to find relevant job opportunities in my field, but this job recommendation portal made it so easy for me. Within a week of signing up, I received multiple job offers from top companies in my industry. Highly recommend it!',
+	name: 'Arthur Birnbaum',
+	color: 'rgba(57, 59, 97, 1.0)'
+},{
+	text: 'As a recruiter, I often use this job search portal to find the right candidates for our open positions. The platform is user-friendly and the algorithm matches job seekers to our job openings accurately. We have had great success with hiring candidates through this portal.',
+	name: 'Phoebe Kotliar',
+	color: 'rgba(250, 130, 49,1.0)'
+},{
+	text: 'I was hesitant to try another job search portal, but this one exceeded my expectations. The personalized job recommendations and the ability to connect directly with employers made the job search process much smoother. I landed my dream job through this portal!',
+	name: 'Louisa P. Huard',
+	color: 'rgba(75, 123, 236,1.0)'
+},{
+	text: 'I love how easy it is to use this job recommendation portal. The interface is simple and straightforward, and the portal sends me daily job recommendations that match my skills and experience. I would definitely recommend this platform to anyone looking for a new job.',
+	name: 'Cristina Aurmoogum',
+	color: 'rgba(165, 94, 234,1.0)'
+},{
+	text: 'This job search portal is a game-changer for anyone looking for a job. The algorithm matches job seekers to job openings based on their qualifications and experience, and the portal offers resources such as interview tips and resume feedback. I landed a job within a month of using this platform.',
+	name: 'J. Kent Pepper',
+	color: 'rgba(32, 191, 107,1.0)'
+}];
+
+addTestimonial(0);
+
+authorsEl.forEach((author, idx) => {
+	author.addEventListener('click', (e) => {
+		addTestimonial(idx);
+		author.classList.add('selected');
+	})
+});
+
+function addTestimonial(idx) {
+	const testimonial = testimonials[idx];
+	
+	nameEl.innerHTML = testimonial.name;
+	textEl.innerHTML = testimonial.text;
+	container.style.background = testimonial.color;
+	container.style.boxShadow = `0 35px 10px -20px ${testimonial.color.substring(0, testimonial.color.length-4)}0.9)`;
+	
+	authorsEl.forEach(author => {
+		author.classList.remove('selected');
+	});
+}
+
+// SOCIAL PANEL JS
+const floating_btn = document.querySelector('.floating-btn');
+const close_btn = document.querySelector('.close-btn');
+const social_panel_container = document.querySelector('.social-panel-container');
+
+floating_btn.addEventListener('click', () => {
+	social_panel_container.classList.toggle('visible')
+});
+
+close_btn.addEventListener('click', () => {
+	social_panel_container.classList.remove('visible')
+});
+</script>
+<!-- --------------------------TESTIMONIALS END------------------------------------- -->
+
+  <form method="post" action="/userreg" id="form3">
+    <h3>Registration</h3>
+    <hr>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" placeholder="Enter username" name="name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="phone">Mobile No.:</label>
+      <input type="tel" class="form-control" id="phone" placeholder="Enter mobile number" name="phone">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+    </div>
+    <div class="form-group">
+      <label for="dp">Profile photo:</label>
+      <input type="file" class="form-control" id="dp" name="dp">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button></br></br>
+    Click here to <a data-value="#form2" onclick="toggleform(event)">Sign in</a>
+    <br><br>
+  </form>
+
+  <form method="post" action="/adminlog" id="form4">
+    <h3>Login</h3>
+    <hr>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" placeholder="Enter username" name="name">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button></br></br>
+  </form>
+  <div class="col-lg-2"></div>
+  </section>
+
+  <script>
+    function toggleform(e) {
+      var Id = (e.target.getAttribute('data-value'))
+      let Items = ['#form1', '#form2', '#form3', '#form4', '#form5', "#form6"];
+      Items.map(function (item) {
+        if (Id === item) {
+          $(item).addClass("active");
+          $('html, body').animate({
+            scrollTop: $(item).offset().top
+          }, 'slow');
+        } else {
+          $(item).removeClass("active");
+        }
+      })
+    }
+
+    $(document).ready(function() {
+    $("#getotp").on("click",function(e){
+        $.ajax({
+            url:"/getotp",
+            success:function(res){
+                console.log(res);
+            }
+        });
+    });
+});
+
+  </script>
+  <i class="fa fa-arrow-circle-up fa-3x"></i>
+  <style>
+    ::-webkit-scrollbar {
+      width: 15px
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: white
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #323232
+    }
+
+    .fa {
+      display: none;
+      position: fixed;
+      bottom: 8px;
+      right: 8px;
+      cursor: pointer;
+      color: #d4d4d4;
+    }
+
+    .fa:hover {
+      animation: icon 1s ease-in-out
+    }
+
+    @-webkit-keyframes icon {
+      0% {
+        bottom: 8px
+      }
+
+      25% {
+        bottom: 15px
+      }
+
+      50% {
+        bottom: 8px
+      }
+
+      75% {
+        bottom: 15px
+      }
+
+      100% {
+        bottom: 8px
+      }
+    }
+
+    @keyframes icon {
+      0% {
+        bottom: 8px
+      }
+
+      25% {
+        bottom: 15px
+      }
+
+      50% {
+        bottom: 8px
+      }
+
+      75% {
+        bottom: 15px
+      }
+
+      100% {
+        bottom: 8px
+      }
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      'use strict';
+      $('i').on('click', function () {
+        $('html').animate({
+          scrollTop: 0
+        }, 800);
+      });
+      $(window).on('scroll', function () {
+        if ($(window).scrollTop() > 400) {
+          $('i').fadeIn();
+        } else {
+          $('i').fadeOut();
+        }
+      });
+    });
+  </script>
+</body>
+<footer>
+  <div class="footer-container">
+    <div class="left-col">
+      <img src="logo.png" alt="" class="logo">
+      <div class="social-media">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p class="rights-text">© 2023 Created By <b>Jobtrix</b>  All Rights Reserved.</p>
+    </div>
+
+    <!-- <div class="right-col">
+      <h1>Our Newsletter</h1>
+      <div class="border"></div>
+      <p>Enter Your Email to get our news and updates.</p>
+      <form action="" class="newsletter-form">
+        <input type="text" class="txtb" placeholder="Enter Your Email">
+        <input type="submit" class="btn" value="submit">
+      </form>
+    </div> -->
+  </div>
+</footer>
+<style>
+  footer{
+  background: #f1f1f1;
+  padding: 20px 0;
+  /* padding-left: 200px; */
+}
+ 
+.footer-container{
+  max-width: 1300px;
+  margin-left: 210px;
+  padding: 0 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+}
+ 
+.logo{
+  width: 180px;
+}
+ 
+.social-media{
+  margin: 20px 0;
+}
+ 
+.social-media a{
+  color: #001a21;
+  margin-right: 25px;
+  font-size: 22px;
+  text-decoration: none;
+  transition: .3s linear;
+}
+ 
+.social-media a:hover{
+  color: #fc5c65;
+}
+ 
+.right-col h1{
+  font-size: 26px;
+}
+ 
+.border{
+  width: 100px;
+  height: 4px;
+  background: #fc5c65;
+}
+ 
+.newsletter-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+ 
+.txtb{
+  flex: 1;
+  padding: 18px 40px;
+  font-size: 16px;
+  color: #293043;
+  background: #ddd;
+  border: none;
+  font-weight: 700;
+  outline: none;
+  border-radius: 30px;
+  min-width: 260px;
+}
+
+@media screen and (max-width:960px) {
+  .footer-container{
+    max-width: 600px;
+  }
+  .right-col{
+    width: 100%;
+    margin-bottom: 60px;
+  }
+ 
+  .left-col{
+    width: 100%;
+    text-align: center;
+  }
+}
+ 
+ 
+@media screen and (max-width:700px){
+  .btn{
+    margin: 0;
+    width: 100%;
+    margin-top: 20px;
+    }
+}
+</style>
+</html>

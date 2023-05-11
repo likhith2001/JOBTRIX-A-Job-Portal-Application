@@ -1,0 +1,247 @@
+{% extends "layout_recommend.html" %}
+{% block content %}
+
+    <!-- <link rel="stylesheet" href="http://127.0.0.1:5000/static/css/resume.css"> -->
+   
+    <h1 style="font-weight: bold;">JOB RECOMMENDATION</h1>
+      <div class="container"  style="box-shadow: 0px 0px 10px 0px rgb(255, 248, 248); background-color: rgb(176, 204, 216);">
+       
+            <form action="/recommend" method="post">
+               
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4 form-group">
+                        <label for="">Database Fundamentals</label>
+                        <select name="skill1" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for="">Computer Architecture</label>
+                        <select name="skill2" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for="">Distributed Computing Systems</label>
+                        <select name="skill3" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 form-group">
+                        <label for="">Cyber Security</label>
+                        <select name="skill4" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for="">Networking</label>
+                        <select name="skill5" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for="">Software Development</label>
+                        <select name="skill6" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 form-group">
+                        <label for="">Programming Skills</label>
+                        <select name="skill7" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for="skill8">Project Management</label>
+                        <select name="skill8" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for="skill9">Computer Forensics Fundamentals</label>
+                        <select name="skill9" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 form-group">
+                        <label for="skill10">Technical Communication</label>
+                        <select name="skill10" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for="skill11">AI ML</label>
+                        <select name="skill11" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for="skill12">Software Engineering</label>
+                        <select name="skill12" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 form-group">
+                        <label for="skill13">Business Analysis</label>
+                        <select name="skill13" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for="skill14">Communication skills</label>
+                        <select name="skill14" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for="skill15">Data Science</label>
+                        <select name="skill15" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 form-group">
+                        <label for="skill16">Troubleshooting skills</label>
+                        <select name="skill16" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for="skill17">Graphics Designing</label>
+                        <select name="skill17" id="" class="form-control">
+                            <option value="0">Not Interested</option>
+                            <option value="1">Poor</option>
+                            <option value="2">Beginner</option>
+                            <option value="3">Average</option>
+                            <option value="4">Intermediate</option>
+                            <option value="5">Excellent</option>
+                            <option value="6">Professional</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label for=""></label>
+                        <input type="submit" class="form-control btn btn-success" value="Submit">
+                    </div>
+                    
+                </div>
+            </form>
+            <hr>
+            <centre>
+            {% if pred %}
+            {% set job = pred %}
+                <h3>Recommeded job is <b>{{ pred }}</b>, Click <a href="{{ url_for('posts', job = job) }}">here</a> to view vacancies</h3>
+            {% endif %}
+        </centre>
+      </div>
+
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <script src="http://127.0.0.1:5000/static/js/main.js"></script>
+
+{% endblock %}

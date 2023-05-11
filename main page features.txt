@@ -1,0 +1,19 @@
+Header- logo, name
+
+footer - logo, short nav links, short fake address, social media handles, copyright
+
+Nav bar - home, about, login/signup, support page
+
+Home page (landing page)- nav bar, car, search bar, video, testimonials, footer
+
+About page - Information (how does it stand out), how does it work - video (screen record), wordings and images (mini car) to access the portal, referrals
+
+login/sign up- phone no. validation
+
+support page - FAQs, 
+Any other queries:  first name, last name, mail address, phone no, student/preofessional, enter message. 
+
+Connect with us: linkedin, insta, fb, twitter
+
+-----------------------------------------------------------------
+

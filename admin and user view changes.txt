@@ -1,0 +1,39 @@
+admin login - manually change status of the job and reflect the status in applied jobs page
+
+and maybe send an automated message after status change. admin views what jobs user has applied to.
+
+contact button - admin can mail the user
+
+---------------------------------
+user login:
+
+
+
+Tailor your resume
+
+After logging in:
+
+2 buttons - my jobs (new - You haven't to applied to any jobs yet! add a graphic), my resume (generate/edit resume)
+
+nav bar - match jobs, jobs applied, resume, profile, logout, notifications, resources
+
+notifications page-
+display notifications add timestamp, recent ones displayed on top
+
+jobs applied- shows the job applied, company name, role, time
+			add to calender, interview resources - display some info and show more to redirect
+
+resume pge - same
+
+profile page - same
+
+logout - landing page
+
+match jobs page- intially same, view jobs - apply button will redirect to simple form to apply 
+		      add filters based on location, company, salary.
+			
+			get referral button (beside apply button) - redirect to company linkedin page
+
+apply form (status bar 0 to 100%) - email address, country code, phone number , (next) resume, cover letter, additional qs - are you willing to do night shifts, transportation from/to the company, skills -> applied, send a notification to phone.
+
+resources page - how to write an effective cover letter, how to find good internships, how to obtain a referral

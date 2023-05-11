@@ -1,0 +1,161 @@
+{% extends "layout_recommend.html" %}
+{% block content %}
+<script>
+ $(document).ready(function () {
+
+    let doc = new jsPDF('p','pt','a4');
+
+doc.addHTML(document.getElementById('htmltopdf'),function() {
+    doc.save('Resume.pdf');
+});
+
+});
+
+</script>
+
+</head>
+<body>
+  
+
+    <div class="container">
+    
+        <div id="htmltopdf" style="background-color: white;">
+            <div>
+                <h1>RESUME</h1>
+                <table>
+                    <tr>
+                        <td colspan="2" ><h2>{{ fullname }}</h2></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>{{ pnum }}</td>
+                    </tr>
+                    <tr>
+                        <td>Gmail ID</td>
+                        <td>{{ gid }}</td>
+                    </tr>
+                    <tr>
+                        <td>Current Address</td>
+                        <td>{{ caddress }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3>OBJECTIVES:</h3>
+                <p>{{ objective }}</p>
+            </div>
+        
+            <div>
+                <h3>SUMMURY OF SKILLS:</h3>
+                <ol>
+                {% for i in summury %}
+                <li>{{ i[0] }}</li>
+                {% endfor %}
+                </ol>
+            </div>
+        
+            <div>
+                <h3>TECHNICAL SKILLS:</h3>
+                <table>
+                    <tr>
+                        <td>Web Skills</td>
+                        <td>{{ skill }}</td>
+                    </tr>
+                    <tr>
+                        <td>Web Tools</td>
+                        <td>{{ tool }}</td>
+                    </tr>
+                    <tr>
+                        <td>Database</td>
+                        <td>{{ db }}</td>
+                    </tr>
+                    <tr>
+                        <td>Operating Systems</td>
+                        <td>{{ sos }}</td>
+                    </tr>
+                </table>
+            </div>
+        
+            <div id="edu">
+                <h3>ACADEMICS:</h3>
+                <table>
+                    <tr>
+                        <th>Course</th>
+                        <th>University</th>
+                        <th>Result</th>
+                        <th>Passout Year</th>
+                    </tr>
+                    {% for row in academic %}
+                    <tr>
+                        {% for i in row %}
+                                    <td>{{i}}</td>
+                        {% endfor %}
+                                </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        
+            <div>
+                <h3>PROJECT WORK:</h3>
+                <table>
+                    <tr>
+                        <td>Title</td>
+                        <td>{{ title }}</td>
+                    </tr>
+                    <tr>
+                        <td>Technologies Used</td>
+                        <td>{{ tech }}</td>
+                    </tr>
+                    <tr>
+                        <td>Server</td>
+                        <td>{{ srvr }}</td>
+                    </tr>
+                    <tr>
+                        <td>Operating Systems</td>
+                        <td>{{ pos }}</td>
+                    </tr>
+                    <tr>
+                        <td>Team Size</td>
+                        <td>{{ team }}</td>
+                    </tr>
+                </table>
+            </div>
+        
+            <div>
+                <h4>PROJECT DESCRIPTION:</h4>
+                <p>{{ desp }}</p>
+            </div>
+        
+            <div>
+                <h3>CURRICULAR ACTIVITIES:</h3>
+                <ol>
+                {% for i in activities%}
+                <li>{{ i[0] }}</li>
+                {% endfor %}
+                </ol>
+            </div>
+            <div>
+                <h3>STRENGTH:</h3>
+                <ol>
+                {% for i in strength %}
+                <li>{{ i[0] }}</li>
+                {% endfor %}
+                </ol>
+            </div>
+            <div>
+                <h3>PERSONAL DETAILS:</h3>
+                <table>
+                    <tr><td>Full Name</td><td>{{ fullname }}</td></tr>
+                    <tr><td>Date of Birth</td><td> {{ bday }}</td></tr>
+                    <tr><td>Gender</td><td>{{ gender }}</td></tr>
+                    <tr><td>Language Known</td><td>{{ languages }}</td></tr>
+                    <tr><td>Permanent Address</td><td>{{ paddress }}</a></td></tr>
+                </table>
+            </div>
+            <div>
+                <h3>DECLARATION:</h3>
+                <p>{{ declaration }}</p>
+            </div>
+        </div>
+        </div>
+        {% endblock %}
