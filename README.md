@@ -1,2 +1,2 @@
 # JOBTRIX-A-Job-Portal-Application
-A Job Recommendation System that suggests jobs based on the user's skillset.
+Final year project - A Job Recommendation System that suggests jobs based on the user's skillset <br\> Technologies: Flask REST api, MySQL, python, requests module.
