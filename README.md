@@ -3,8 +3,8 @@
 **JOBTRIX** is an intelligent job search and recruitment platform designed to bridge the gap between job seekers and employers using machine learning. Unlike traditional portals, JOBTRIX analyzes a user's unique profile and skillset to automatically recommend jobs where they are most likely to excel.
 
 ## 🚀 Key Features
-* [cite_start]**Automated Recommendations:** Implements the **XGBoost algorithm** to match individuals with suitable job openings based on their skills[cite: 62, 66].
-* [cite_start]**Live Data Scraping:** Uses **Beautiful Soup** to scrape real-time job listings from portals like TimesJobs, ensuring the database is always current[cite: 114, 1085].
+**Automated Recommendations:** Implements the **XGBoost algorithm** to match individuals with suitable job openings based on their skills[cite: 62, 66].
+**Live Data Scraping:** Uses **Beautiful Soup** to scrape real-time job listings from portals like TimesJobs, ensuring the database is always current[cite: 114, 1085].
 * [cite_start]**RESTful Architecture:** Built using **Flask REST API** for a scalable, stateless, and efficient backend[cite: 65, 442].
 * [cite_start]**Resume Builder:** An integrated feature that allows users to generate and download professional resumes in PDF format[cite: 1352, 1353].
 * [cite_start]**Skill Assessment:** Includes a quiz module (Python, Java, HTML, etc.) to help users test their proficiency and prepare for interviews[cite: 1321, 1407].
